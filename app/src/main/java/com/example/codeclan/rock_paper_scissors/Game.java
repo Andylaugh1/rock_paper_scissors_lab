@@ -65,16 +65,19 @@ public class Game {
        }
    }
 
-   public int getPlayerWinCounter(){
-        return this.playerWinCounter;
+   public String getPlayerWinCounter(){
+        int wins = this.playerWinCounter;
+        return "Player has " + wins + " so far!";
    }
 
-   public int getAndroidWinCounter(){
-        return this.androidWinCounter;
+   public String getAndroidWinCounter(){
+        int wins =  this.androidWinCounter;
+        return "Android has " + wins + " so far!";
    }
 
-   public int getNumOfDraws(){
-        return this.numOfDraws;
+   public String getNumOfDraws(){
+        int draws = this.numOfDraws;
+        return "So far there have been " + draws + " boring draws";
    }
 
    public void countWins(){

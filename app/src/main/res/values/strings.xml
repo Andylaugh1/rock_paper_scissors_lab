@@ -6,5 +6,7 @@
     <string name="player_choice">PLAYER CHOICE</string>
     <string name="android_choice">ANDROID CHOICE</string>
     <string name="game_result">RESULT</string>
+    <string name="player_wins">Player Wins</string>
+    <string name="android_wins">Android Wins</string>
 
 </resources>
