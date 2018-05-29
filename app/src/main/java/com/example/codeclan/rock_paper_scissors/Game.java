@@ -11,7 +11,7 @@ public class Game {
     int numOfDraws;
 
 
-    public Game(ChoiceType playerChoice, ChoiceType androidChoice){
+    public Game(){
         this.playerChoice = playerChoice;
         this.androidChoice = androidChoice;
         this.playerWinCounter = 0;
@@ -67,12 +67,12 @@ public class Game {
 
    public String getPlayerWinCounter(){
         int wins = this.playerWinCounter;
-        return "Player has " + wins + " so far!";
+        return "Player has " + wins + " wins so far!";
    }
 
    public String getAndroidWinCounter(){
         int wins =  this.androidWinCounter;
-        return "Android has " + wins + " so far!";
+        return "Android has " + wins + " wins so far!";
    }
 
    public String getNumOfDraws(){

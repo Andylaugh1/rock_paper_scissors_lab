@@ -9,7 +9,9 @@ import android.widget.TextView;
 
 public class GameActivity extends AppCompatActivity {
 
-    TextView playerChoice, androidsChoice, gameResult;
+    Game game = new Game();
+
+    TextView playerChoice, androidsChoice, gameResult, playerWins, androidWins;
     Button rockButton, paperButton, scissorsButton;
 
 
@@ -19,12 +21,18 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
+
         playerChoice = findViewById(R.id.player_choice);
         androidsChoice = findViewById(R.id.android_choice);
         gameResult = findViewById(R.id.game_result);
         rockButton = findViewById(R.id.rock_button);
         paperButton = findViewById(R.id.paper_button);
         scissorsButton = findViewById(R.id.scissors_button);
+        playerWins = findViewById(R.id.player_wins);
+        androidWins = findViewById(R.id.android_wins);
+
+
+
 
     }
 
@@ -32,23 +40,26 @@ public class GameActivity extends AppCompatActivity {
     public void onClickRockButton(View button){
         playerChoice.setText("Player chose ROCK");
 
-        Game game = new Game(ChoiceType.ROCK, ChoiceType.ROCK);
+        game.setPlayerChoice(ChoiceType.ROCK);
+
         ChoiceType androidChoice = game.randomiseAndroidChoice();
         game.setAndroidChoice(androidChoice);
         ChoiceType choice = game.getAndroidChoice();
         androidsChoice.setText("Android chose " + choice.toString());
 
         String winner = game.getWinner();
+        game.countWins();
 
-
+        playerWins.setText(game.getPlayerWinCounter());
+        androidWins.setText(game.getAndroidWinCounter());
         gameResult.setText(winner);
     }
 
     public void onClickPaperButton(View button){
         playerChoice.setText("Player chose PAPER");
 
+        game.setPlayerChoice(ChoiceType.PAPER);
 
-        Game game = new Game(ChoiceType.PAPER, ChoiceType.PAPER);
         ChoiceType androidChoice = game.randomiseAndroidChoice();
         game.setAndroidChoice(androidChoice);
         ChoiceType choice = game.getAndroidChoice();
@@ -56,6 +67,10 @@ public class GameActivity extends AppCompatActivity {
 
 
         String winner = game.getWinner();
+        game.countWins();
+
+        playerWins.setText(game.getPlayerWinCounter());
+        androidWins.setText(game.getAndroidWinCounter());
 
         gameResult.setText(winner);
     }
@@ -63,13 +78,18 @@ public class GameActivity extends AppCompatActivity {
     public void onClickScissorsButton(View button){
         playerChoice.setText("Player chose SCISSORS");
 
-        Game game = new Game(ChoiceType.SCISSORS, ChoiceType.SCISSORS);
+        game.setPlayerChoice(ChoiceType.SCISSORS);
+
         ChoiceType androidChoice = game.randomiseAndroidChoice();
         game.setAndroidChoice(androidChoice);
         ChoiceType choice = game.getAndroidChoice();
         androidsChoice.setText("Android chose " + choice.toString());
 
         String winner = game.getWinner();
+        game.countWins();
+
+        playerWins.setText(game.getPlayerWinCounter());
+        androidWins.setText(game.getAndroidWinCounter());
 
         gameResult.setText(winner);
     }
