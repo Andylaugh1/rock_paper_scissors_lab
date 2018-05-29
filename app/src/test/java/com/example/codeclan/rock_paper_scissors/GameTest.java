@@ -53,4 +53,19 @@ public class GameTest {
         assertEquals(ChoiceType.PAPER, game.getAndroidChoice());
     }
 
+    @Test
+    public void canAccumulateWins(){
+        ChoiceType result = game.randomiseAndroidChoice();
+        game.setAndroidChoice(result);
+        game.getWinner();
+        game.countWins();
+        game.getWinner();
+        game.countWins();
+        assertEquals(0, game.getPlayerWinCounter());
+        assertEquals(0, game.getAndroidWinCounter());
+        assertEquals(0, game.getNumOfDraws());
+
+    }
+
+
 }

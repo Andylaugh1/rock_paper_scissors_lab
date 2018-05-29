@@ -6,10 +6,17 @@ public class Game {
 
     ChoiceType playerChoice;
     ChoiceType androidChoice;
+    int playerWinCounter;
+    int androidWinCounter;
+    int numOfDraws;
+
 
     public Game(ChoiceType playerChoice, ChoiceType androidChoice){
         this.playerChoice = playerChoice;
         this.androidChoice = androidChoice;
+        this.playerWinCounter = 0;
+        this.androidWinCounter = 0;
+        this.numOfDraws = 0;
     }
 
     public void setPlayerChoice(ChoiceType choice){
@@ -56,5 +63,29 @@ public class Game {
        } else {
            return "Player Wins!!";
        }
+   }
+
+   public int getPlayerWinCounter(){
+        return this.playerWinCounter;
+   }
+
+   public int getAndroidWinCounter(){
+        return this.androidWinCounter;
+   }
+
+   public int getNumOfDraws(){
+        return this.numOfDraws;
+   }
+
+   public void countWins(){
+        if (getWinner() == "Android Wins!!"){
+            this.androidWinCounter ++;
+        }
+        else if (getWinner() == "Player Wins!!"){
+            this.playerWinCounter ++;
+        }
+        else {
+            this.numOfDraws ++;
+        }
    }
 }
